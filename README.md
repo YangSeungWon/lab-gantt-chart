@@ -6,6 +6,7 @@ This is a fork of the HillLab_gantt_chart repository. The original repository ca
 - Now build `gantt.info` from a CSV file named `data.csv` instead of hardcoding it in the script.
 - Removed day information to simplify the data.
 - Changed strings to use variables for easier customization.
+- Put names next to the bars also.
 
 
 

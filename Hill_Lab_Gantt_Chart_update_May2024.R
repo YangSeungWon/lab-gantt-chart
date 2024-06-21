@@ -34,7 +34,7 @@ vgridpos <- convert(paste(vgridlab, '/01', sep = ""))
 
 colfunc <- colorRampPalette(c("#762a83", "#af8dc3", "#e7d4e8", "#d9f0d3", "#7fbf7b", "#1b7837"))
 
-timeframe <- convert(c(paste(estyear, "/01", sep = ""), paste(thisyear, "/12", sep = "")))
+timeframe <- convert(c(paste(estyear-2, "/01", sep = ""), paste(thisyear, "/12", sep = "")))
 
 
 # Plot and save your Gantt chart into PDF form
@@ -49,12 +49,10 @@ gantt.chart(gantt.info,
         half.height = 0.4,
         cylindrical = FALSE,
         border.col = "black",
-        label.cex = 0.8,
         priority.label = "Type",
         priority.extremes = c("PI", "Undergrad"),
         time.axis = 1,
 )
-
 
 # add a legend
 legend("bottomleft", 
@@ -64,7 +62,14 @@ legend("bottomleft",
         y.intersp = 2.0,
 )
 
+# get first occurrence of each name and start position
+firsts <- sapply(unique(names), function(x) which(names == x)[1])
+starts <- starts[firsts]
+names <- names[firsts]
 
+for (i in 1:length(unique(names))) {
+        text(as.integer(starts[i])-10000000, length(names)-i+1, names[i], cex=1, pos=2, offset=-1)
+}
 
 # print chart as pdf
 # width <- (thisyear - estyear) %/% 2
