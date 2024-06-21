@@ -1,4 +1,15 @@
-# HillLab_gantt_chart
+# lab-gantt-chart
+
+This is a fork of the HillLab_gantt_chart repository. The original repository can be found at https://github.com/HillLabSask/HillLab_gantt_chart .
+
+## Changes
+- Now build `gantt.info` from a CSV file named `data.csv` instead of hardcoding it in the script.
+- Removed day information to simplify the data.
+- Changed strings to use variables for easier customization.
+
+
+
+## (original) HillLab_gantt_chart
 This is some basic R code for making the Hill Lab personnel gantt chart.
 We were inspired by https://rpubs.com/mramos/ganttchart
 
